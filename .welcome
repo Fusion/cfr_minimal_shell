@@ -1,0 +1,42 @@
+default_help() {
+echo '##########################################################################################################'
+echo '# fasd: `j` // d,<tab> // f,<tab>                                                                        #'
+echo '# fzf: vi $(fzf) // ls | fzf -m // more syntax: cat ~/.welcome.fzf                                       #'
+echo '# osx: `manp` man in preview / `pfd` past window path / `pfs` paste window selection / `ql $@` quickview #'
+echo '# vi tips/tmux integration: in vi, :h cfr                                                                #'
+echo '# shell automation: prezto // puppet: start_puppet                                                       #'
+echo '# More info: `mh` `mh help`                                                                              #'
+echo '##########################################################################################################'
+
+alias mh='. ~/.welcome'
+}
+
+help_help() {
+echo '##########################################################################################################'
+echo '# `mx` commmands: `help` `tmux`                                                                          #'
+echo '##########################################################################################################'
+}
+
+tmux_help() {
+echo '##########################################################################################################'
+echo '# tmux: `tmuxl` list sessions // `tmuxa` attach session                                                 #'
+echo '# plugins: prefix+<c-I> install plugins // prefix+<c-U> update plugins                                  #'
+echo '# sessions: prefix+C create session // prefix+@ promote current pane                                    #'
+echo '#           prefix+s list sessions // prefix+S switch to last session                                   #'
+echo '# sidebar: prefix+<TAB> // prefix+<BACK>                                                                #'
+echo '##########################################################################################################'
+}
+
+case "$1" in
+test)
+;;
+tmux)
+tmux_help
+;;
+help)
+help_help
+;;
+*)
+default_help
+;;
+esac
