@@ -8,12 +8,12 @@ echo '# shell automation: prezto // puppet: start_puppet                        
 echo '# More info: `mh` `mh help`                                                                              #'
 echo '##########################################################################################################'
 
-alias mh='. ~/.welcome'
+alias mh='. ~/welcome'
 }
 
 help_help() {
 echo '##########################################################################################################'
-echo '# `mx` commmands: `help` `tmux`                                                                          #'
+echo '# `mx` commmands: `help` `vi` `tmux`                                                                     #'
 echo '##########################################################################################################'
 }
 
@@ -24,11 +24,42 @@ echo '# plugins: prefix+<c-I> install plugins // prefix+<c-U> update plugins    
 echo '# sessions: prefix+C create session // prefix+@ promote current pane                                    #'
 echo '#           prefix+s list sessions // prefix+S switch to last session                                   #'
 echo '# sidebar: prefix+<TAB> // prefix+<BACK>                                                                #'
+echo '# logging: `tl`                                                                                         #'
+echo '##########################################################################################################'
+}
+
+vi_help() {
+echo '##########################################################################################################'
+echo '# Buffers {{{                                                                                            #'
+echo '#     :vnew ( | ) or :new (-_ ) or :badd <name>                                                          #'
+echo '#     :vsp <name> ( | ) or :sp <name> (-_)                                                               #'
+echo '# Navigation {{{                                                                                         #'
+echo '#     Navigate through windows: <C-w>w/h/j/k/l                                                           #'
+echo '#     Resize: <C-w>5+ Maximize: <C-w>_/=                                                                 #'
+echo '# Search {{{                                                                                             #'
+echo '#     <Alt-o> opens file browwser                                                                        #'
+echo '#     <Shift-Tab> opens quick search (buffers + files)                                                   #'
+echo '#     <Alt-b> search for word under cursor (all files unlike *)                                          #'
+echo '#     <Space>/ search in current path                                                                    #'
+echo '#     <Space>y search yank history                                                                       #'
+echo '# Auto Completion {{{                                                                                    #'
+echo '#     <C-p>, <C-n> and of course <Tab>                                                                   #'
+echo '# Initial Setup {{{                                                                                      #'
+echo '#     First, install the plug in manager (that is Plug):                                                 #'
+echo '#     curl -fLo ~/.vim/autoload/plug.vim \                                                               #'
+echo '#     --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim                  #'
+echo '#     Then run vim and enter `:PlugInstall` (`PlugUpdate` later)                                         #'
+echo '#     Second,                                                                                            #'
+echo '#     * Install the silver searcher (ag)                                                                 #'
+echo '#     * Go to .vim/plugin/vimproc.vim then ./make                                                        #'
 echo '##########################################################################################################'
 }
 
 case "$1" in
 test)
+;;
+vi)
+vi_help
 ;;
 tmux)
 tmux_help

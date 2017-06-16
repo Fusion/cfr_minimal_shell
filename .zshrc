@@ -77,19 +77,19 @@ export ANDROID_HOME=/Users/Chris/Projects/android-sdk-macosx
 # Scala Specific
 export SCALA_HOME=$HOME/scala
 # Ruby Specific
-eval "$(rbenv init -)"
+which rbenv &>/dev/null && eval "$(rbenv init -)"
 # Java Specific
-export JAVA_HOME=$(/usr/libexec/java_home)
+[ -f /usr/libexec/java_home ] && export JAVA_HOME=$(/usr/libexec/java_home)
 alias setjava7='export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.7.0_45.jdk/Contents/Home" && PATH=$JAVA_HOME/bin:$PATH'
 # Rust Specific
-source $HOME/.cargo/env
+[ -f $HOME/.cargo/env ] && source $HOME/.cargo/env
 
 # Go Specific
 export GOPATH=/Users/Chris/go
 export PATH=$GOPATH/bin:$PATH
 
 # My Macros
-source /Users/Chris/bin/source/mymacros
+[ -f /Users/Chris/bin/source/mymacros ] && source /Users/Chris/bin/source/mymacros
 
 # Zplug
 export ZPLUG_HOME=/usr/local/opt/zplug
@@ -99,6 +99,9 @@ if [[ -s "$ZPLUG_HOME/init.zsh" ]]; then
     zplug install
     zplug load
 fi
+
+# TMUX Logging alias
+alias tl='~/.tmux/plugins/tmux-logging/scripts/toggle_logging.sh'
 
 # Dinghy (Docker Machine)
 [ -f /usr/local/bin/dinghy ] && eval $(dinghy env)
@@ -114,7 +117,7 @@ export TASKDDATA=/Users/Chris/.taskdata
 export FZF_DEFAULT_COMMAND='rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 # direnv
-eval "$(direnv hook zsh)"
+which direnv &>/dev/null && eval "$(direnv hook zsh)"
 
 # ask Linux if command not found
 command_not_found_handler() {
@@ -155,7 +158,7 @@ kdessh() {
     docker exec -it kde-env "$@"
 }
 
-. ~/.welcome
+. ~/welcome
 
 ###-tns-completion-start-###
 #if [ -f /Users/Chris/.tnsrc ]; then 
