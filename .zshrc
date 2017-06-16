@@ -9,7 +9,7 @@ if [[ `uname` == 'Linux' ]]; then export OS=Linux; fi
 if [[ `uname` == 'Darwin' ]]; then export OS=OSX; fi
 
 BREW="1"
-export HOMEBREW_GITHUB_API_TOKEN="05aa170d9563b24c820c0f7dfed16e069ba0c8f6"
+[ -f ~/homebrew_github_api_token ] && source ~/homebrew_github_api_token
 PAGER="less"
 HOSTNAME=$(hostname)
 TERM="xterm-color"
